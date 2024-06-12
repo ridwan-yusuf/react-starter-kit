@@ -2,6 +2,7 @@
   "name": "root",
   "version": "0.0.0",
   "packageManager": "yarn@4.1.0",
+  "homepage": "https://ridwan-yusuf.github.io/react-starter-kit",
   "private": true,
   "type": "module",
   "workspaces": [
@@ -17,12 +18,14 @@
     "lint": "eslint --cache --report-unused-disable-directives .",
     "test": "vitest",
     "build": "yarn workspaces foreach -tiA run build",
-    "deploy": "yarn workspace edge deploy"
+    "predeploy": "yarn workspaces foreach -tiA run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/eslint-plugin": "^11.11.0",
     "@types/eslint": "^8.56.2",
+    "@types/gh-pages": "^6",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
     "@typescript-eslint/parser": "^7.0.1",
     "eslint": "^8.56.0",
@@ -55,5 +58,8 @@
     "bracketSameLine": false,
     "arrowParens": "always",
     "endOfLine": "lf"
+  },
+  "dependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
